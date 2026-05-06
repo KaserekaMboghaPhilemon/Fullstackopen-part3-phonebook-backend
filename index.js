@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 
+// Data for the phonebook, stored in memory for now
 let persons = [
     {
       "name": "Arto Hellas",
@@ -54,8 +55,20 @@ let persons = [
     }
 ]
 
+// Route to fetch all person objects
 app.get('/api/persons', (request, response) => {
   response.json(persons)
+})
+
+// NEW: Route to show summary info about the phonebook(exercise 3.2)
+app.get('/info', (request, response) => {
+  const count = persons.length
+  const date = new Date()
+  
+  response.send(`
+    <p>Phonebook has info for ${count} people</p>
+    <p>${date}</p>
+  `)
 })
 
 const PORT = 3001
