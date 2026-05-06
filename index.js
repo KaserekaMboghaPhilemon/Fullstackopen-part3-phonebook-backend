@@ -71,6 +71,23 @@ app.get('/info', (request, response) => {
   `)
 })
 
+// 
+// Fetch a single person by ID (exercise 3.3)
+app.get('/api/persons/:id', (request, response) => {
+  const id = Number(request.params.id) 
+  // String IDs were supposed to be Converted at this point,
+  //  to Numbers in order to match the type of IDs in the persons array 
+  // but was done from step1
+  const person = persons.find(p => p.id === id)
+
+  if (person) {
+    response.json(person)
+  } else {
+    // If no person is found, send a 404 status code
+    response.status(404).end()
+  }
+})
+
 const PORT = 3001
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
