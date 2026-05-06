@@ -88,6 +88,28 @@ app.get('/api/persons/:id', (request, response) => {
   }
 })
 
+
+
+// Route to delete a person by ID (Exercise 3.4)
+app.get('/api/persons/:id', (request, response) => {
+  const id = Number(request.params.id)
+  const person = persons.find(p => p.id === id)
+
+  if (person) {
+    response.json(person)
+  } else {
+    response.status(404).end()
+  }
+})
+
+// NEW: Delete route
+app.delete('/api/persons/:id', (request, response) => {
+  const id = Number(request.params.id)
+  persons = persons.filter(person => person.id !== id)
+
+  // Status 204 means "No Content" - the best response for a successful delete
+  response.status(204).end()
+})
 const PORT = 3001
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
