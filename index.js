@@ -1,6 +1,32 @@
 const express = require('express')
 const app = express()
 
+// This line is essential for my (Exercise 3.5)
+//  as it allows the server to parse JSON bodies in incoming requests,
+//  which is necessary for handling POST requests that add new persons to the phonebook.
+app.use(express.json()) 
+
+// ... (your persons array and other routes) ...
+
+// Exercise 3.5: Handle adding a new person
+app.post('/api/persons', (request, response) => {
+  const body = request.body
+
+  // Generate a random ID as requested by the exercise
+  const generatedId = Math.floor(Math.random() * 10000)
+
+  const person = {
+    name: body.name,
+    number: body.number,
+    id: generatedId,
+  }
+
+  // Add the new person to the array
+  persons = persons.concat(person)
+
+  // Send back the created person as a response
+  response.json(person)
+})
 // Data for the phonebook, stored in memory for now
 let persons = [
     {
