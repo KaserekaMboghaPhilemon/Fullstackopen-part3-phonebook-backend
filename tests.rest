@@ -13,3 +13,36 @@ Content-Type: application/json
     "name": "Fania Kasereka",
     "number": "040-243563"
 }
+
+###
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "Fanisa Kasereka",
+    "number": "040-243563"
+}
+
+###
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "Fania Kase",
+    "number": "040-243563"
+}
+
+###
+DELETE http://localhost:3001/api/persons/3562
+
+###
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "Fania Kaserek",
+    "number": "040-243563"
+}
+
+###
+DELETE http://localhost:3001/api/persons/8605
