@@ -1,8 +1,14 @@
 const express = require('express')
+const morgan = require('morgan') // 1. Import morgan
 const app = express()
 
-// Exercise 3.5: Essential middleware for parsing JSON bodies in POST requests
 app.use(express.json()) 
+
+// 2. Use morgan with the 'tiny' configuration
+app.use(morgan('tiny'))
+
+// ... (rest of your persons array and routes)
+
 
 // Data for the phonebook, stored in memory (Exercise 3.1)
 let persons = [
