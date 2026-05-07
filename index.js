@@ -4,10 +4,16 @@ const app = express()
 
 app.use(express.json()) 
 
-// 2. Use morgan with the 'tiny' configuration
-app.use(morgan('tiny'))
 
-// ... (rest of your persons array and routes)
+// Exercise 3.8: Creating a custom token to display the POST body
+morgan.token('body', (req, res) => {
+  return JSON.stringify(req.body)
+})
+
+// Use a custom format string that includes our new :body token
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'))
+
+// ... (rest of my persons array and routes)
 
 
 // Data for the phonebook, stored in memory (Exercise 3.1)
