@@ -1,6 +1,9 @@
 const express = require('express')
-const morgan = require('morgan') // 1. Import morgan
+const morgan = require('morgan')
+const cors = require('cors') // 1. Import cors
 const app = express()
+
+app.use(cors()) // 2. Enable CORS for all routes
 
 app.use(express.json()) 
 
