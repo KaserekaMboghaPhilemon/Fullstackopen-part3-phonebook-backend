@@ -102,6 +102,8 @@ app.post('/api/persons', (request, response) => {
   response.json(person)
 })
 
+// Exercise 3.10: prepare for deployment,
+//  by using environment variable for the port
 const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
