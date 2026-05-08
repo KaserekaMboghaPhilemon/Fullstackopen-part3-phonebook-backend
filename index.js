@@ -7,6 +7,8 @@ app.use(cors()) // 2. Enable CORS for all routes
 
 app.use(express.json()) 
 
+app.use(express.static('dist'))
+
 
 // Exercise 3.8: Creating a custom token to display the POST body
 morgan.token('body', (req, res) => {
