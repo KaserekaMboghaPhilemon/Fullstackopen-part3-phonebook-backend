@@ -19,7 +19,7 @@ const url = `mongodb+srv://Philemon-Kasereka:133246557@cluster0.kuyxamk.mongodb.
 // CONFIGURATION: Disables strict mode for queries to ensure Mongoose 7+ compatibility.
 mongoose.set('strictQuery', false)
 
-// INITIALIZATION: Establishes the link between your Node app and the MongoDB cluster.
+// INITIALIZATION: Establishes the link between this Node app and the MongoDB cluster.
 mongoose.connect(url)
 
 // SCHEMA: The blueprint defining the structure (name and number) for each entry.
