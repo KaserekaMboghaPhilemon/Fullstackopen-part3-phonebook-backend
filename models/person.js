@@ -1,11 +1,11 @@
-require('dotenv').config()
 const mongoose = require('mongoose')
+
+// Disable strictQuery to prepare for Mongoose 7/8 changes
+mongoose.set('strictQuery', false)
 
 const url = process.env.MONGODB_URI
 
 console.log('connecting to', url)
-
-mongoose.set('strictQuery', false)
 
 mongoose.connect(url)
   .then(result => {
@@ -20,7 +20,7 @@ const personSchema = new mongoose.Schema({
   number: String,
 })
 
-// Transform the returned document to remove Mongoose-specific fields
+// Transform the output to remove MongoDB-specific fields
 personSchema.set('toJSON', {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id.toString()
