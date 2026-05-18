@@ -44,6 +44,12 @@ Content-Type: application/json
     "number": "040-243563"
 }
 
+### malformed id → 400 "malformatted id"
+GET http://localhost:3001/api/persons/not-a-real-id
+
+### well-formed but non-existent id → 404
+GET http://localhost:3001/api/persons/6a0b0933deb4cb5214ab8c00
+
 ###
 DELETE http://localhost:3001/api/persons/8605
 
