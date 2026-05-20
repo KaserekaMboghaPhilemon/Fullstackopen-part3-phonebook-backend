@@ -64,3 +64,11 @@ Content-Type: application/json
     "name": "Mumbere Joel",
     "number": "0779204828"
 }
+### Update number for an existing person
+PUT http://localhost:3001/api/persons/6a06dfbb988d32c6477651d1
+Content-Type: application/json
+
+{
+  "name": "Muhindo Felic",
+  "number": "999-9999999"
+}
