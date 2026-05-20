@@ -16,8 +16,8 @@ mongoose.connect(url)
 const personSchema = new mongoose.Schema({
   name: {
     type: String,
-  minlength: 3,
-  required: true
+    minlength: 3,
+    required: true
   },
   number: String,
 })
@@ -26,14 +26,14 @@ const Person = mongoose.model('Person', personSchema)
 
 // If you only provide the password: node mongo.js xxxxxxxxxx
 if (process.argv.length === 3) {
-  Person.find({}).then(result => {
+  Person.find({}).then(persons => {
     console.log('phonebook:')
-    result.forEach(person => {
+    persons.forEach(person => {
       console.log(`${person.name} ${person.number}`)
     })
     mongoose.connection.close()
   })
-} 
+}
 
 // If you provide name and number: node mongo.js xxxxxxxxxx "Arto Hellas" "040-123456"
 else if (process.argv.length === 5) {
@@ -42,7 +42,7 @@ else if (process.argv.length === 5) {
     number: process.argv[4],
   })
 
-  person.save().then(result => {
+  person.save().then(() => {
     console.log(`added ${person.name} number ${person.number} to phonebook`)
     mongoose.connection.close()
   })
